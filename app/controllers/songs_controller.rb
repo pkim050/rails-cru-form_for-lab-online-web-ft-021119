@@ -12,12 +12,10 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
-    @artists = Artist.all
-    @genres = Genre.all
   end
 
   def create
-    @song = Song.new(artist_params(:name))
+    @song = Song.new(artist_params(:name, :artist_id, :genre_id))
     @song.save
     redirect_to @song
   end
